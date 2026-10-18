@@ -79,7 +79,7 @@ class AsmRunner {
 object AsmBoot extends App {
   val runner = new AsmRunner()
   scala.io.Source
-    .fromFile("input/aoc2020/d8.txt")
+    .fromFile("input/aoc2020/d08p01.txt")
     .getLines()
     .foreach { line =>
       val parts = line.split(" ")

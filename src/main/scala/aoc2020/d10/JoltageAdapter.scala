@@ -5,8 +5,8 @@ import scala.collection.mutable.HashMap
 
 object JoltageAdapter extends App {
 
-  val linput = "input/aoc2020/d10.txt"
-  val sinput = "input/aoc2020/small/d10.txt"
+  val linput = "input/aoc2020/d10p01.txt"
+  val sinput = "input/aoc2020/d10p00.txt"
   val input = linput
 
   val adapters =

@@ -24,7 +24,7 @@ object BoardingPass extends App {
   var arr = Array.fill(1024)(false)
   var max = 0
   scala.io.Source
-    .fromFile("input/aoc2020/d5.txt")
+    .fromFile("input/aoc2020/d05p01.txt")
     .getLines()
     .foreach { line =>
       var curr = Integer.valueOf(

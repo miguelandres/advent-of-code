@@ -13,7 +13,7 @@ object PasswordPolicy {
   def main(args: Array[String]): Unit = {
     var count = 0
     Source
-      .fromFile("input/aoc2020/d2.txt")
+      .fromFile("input/aoc2020/d02p01.txt")
       .getLines()
       .foreach { line =>
         var matchesOption = passwordPattern.findFirstMatchIn(line)

@@ -13,7 +13,7 @@ object CypherChecking extends App {
   var firstInvalid: Long = 0
 
   breakable {
-    Source.fromFile("input/aoc2020/d9.txt").getLines().foreach { line =>
+    Source.fromFile("input/aoc2020/d09p01.txt").getLines().foreach { line =>
       var num = line.toLong
       fullList += num
       if (array.size == preambleSize) {

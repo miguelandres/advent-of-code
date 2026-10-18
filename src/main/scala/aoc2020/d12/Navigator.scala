@@ -3,8 +3,8 @@ package aoc2020.d12
 import scala.io.Source
 
 object Navigator extends App {
-  val linput = "input/aoc2020/d12.txt"
-  val sinput = "input/aoc2020/small/d12.txt"
+  val linput = "input/aoc2020/d12p01.txt"
+  val sinput = "input/aoc2020/d12p00.txt"
   val input = linput
 
   var position = (0L, 0L)

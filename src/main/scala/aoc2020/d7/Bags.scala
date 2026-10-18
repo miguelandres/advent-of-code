@@ -10,7 +10,7 @@ object Bags extends App {
   val graph = new Graph()
 
   scala.io.Source
-    .fromFile("input/aoc2020/d7.txt")
+    .fromFile("input/aoc2020/d07p01.txt")
     .getLines()
     .foreach { line =>
       var parent = parentBag.findFirstMatchIn(line).get.group(1)

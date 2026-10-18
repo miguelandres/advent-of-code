@@ -5,8 +5,8 @@ import scala.collection.mutable.ArrayBuffer
 import scala.util.control.Breaks._
 
 object CardGame extends App {
-  val linput = "input/aoc2020/d22.txt"
-  val sinput = "input/aoc2020/small/d22.txt"
+  val linput = "input/aoc2020/d22p01.txt"
+  val sinput = "input/aoc2020/d22p00.txt"
   val input = linput
 
   val player1 = new ArrayBuffer[Long]

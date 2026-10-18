@@ -5,7 +5,7 @@ import scala.Console.println
 import scala.util.control.Breaks._
 import scala.collection.immutable.HashMap
 object ExpenseReport extends App {
-  val source = Source.fromFile("input/aoc2020/d1.txt")
+  val source = Source.fromFile("input/aoc2020/d01p01.txt")
   try {
     val entries = source.getLines().map(_.toInt)
 

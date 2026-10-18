@@ -18,8 +18,8 @@ object AllergenDetector {
   type StringMultiMap = MultiMap[String, String]
   type StringSetMultiMap = MultiMap[String, StringSet]
 
-  val linput = "input/aoc2020/d21.txt"
-  val sinput = "input/aoc2020/small/d21.txt"
+  val linput = "input/aoc2020/d21p01.txt"
+  val sinput = "input/aoc2020/d21p00.txt"
   val input = linput
 
   val allIngredients = new HashSet[String]()

@@ -19,7 +19,7 @@ object PassportControl extends App {
 
   passports += passportData;
   scala.io.Source
-    .fromFile("input/aoc2020/d4.txt")
+    .fromFile("input/aoc2020/d04p01.txt")
     .getLines()
     .foreach { line =>
       var trimmedLine = line.trim()

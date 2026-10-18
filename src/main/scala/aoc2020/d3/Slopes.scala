@@ -5,7 +5,7 @@ import scala.collection.mutable.ArrayBuffer
 
 object Slopes extends App {
   var map = new ArrayBuffer[String]()
-  Source.fromFile("input/aoc2020/d3.txt").getLines().foreach(map += _)
+  Source.fromFile("input/aoc2020/d03p01.txt").getLines().foreach(map += _)
 
   val directions = Array[(Int, Int)]((1, 1), (3, 1), (5, 1), (7, 1), (1, 2))
 

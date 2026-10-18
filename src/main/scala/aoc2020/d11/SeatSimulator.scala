@@ -5,8 +5,8 @@ import scala.io.Source
 import scala.util.control.Breaks._
 
 object SeatSimulator extends App {
-  var linput = "input/aoc2020/d11.txt"
-  var sinput = "input/aoc2020/small/d11.txt"
+  var linput = "input/aoc2020/d11p01.txt"
+  var sinput = "input/aoc2020/d11p00.txt"
   var input = linput
   var map = new SeatMap
   var directions = Seq((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))

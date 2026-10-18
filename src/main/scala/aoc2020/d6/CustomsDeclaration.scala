@@ -8,7 +8,7 @@ object CustomsDeclaration extends App {
   var sumEveryone = 0;
   var count = 0
   scala.io.Source
-    .fromFile("input/aoc2020/d6.txt")
+    .fromFile("input/aoc2020/d06p01.txt")
     .getLines()
     .foreach { line =>
       if (line.size == 0) {
