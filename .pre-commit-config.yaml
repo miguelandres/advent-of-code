@@ -41,3 +41,9 @@ repos:
         language: system
         files: ^.*\.scala$
         pass_filenames: false
+      - id: rustfmt
+        name: rustfmt
+        entry: cargo fmt --all --
+        language: system
+        files: ^.*\.rs$
+        pass_filenames: false

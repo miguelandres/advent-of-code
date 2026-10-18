@@ -1,6 +1,7 @@
 package aoc2025
 
 import utils.readAocInput
+import kotlin.math.abs
 
 data class LockCounter(
   val lockPointer: Int,
@@ -26,9 +27,9 @@ fun main() {
       val count =
         if (sum <= 0) {
           if (acc.lockPointer == 0) {
-            Math.abs(sum) / 100
+            abs(sum) / 100
           } else {
-            1 + Math.abs(sum) / 100
+            1 + abs(sum) / 100
           }
         } else {
           sum / 100

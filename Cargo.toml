@@ -1,0 +1,15 @@
+[package]
+name = "advent-of-code"
+version = "1.0.0"
+edition = "2024"
+autobins = false
+
+[lib]
+name = "advent_of_code"
+path = "src/main/rust/lib.rs"
+
+[[bin]]
+name = "aoc2025_day01"
+path = "src/main/rust/aoc2025/day01.rs"
+
+[dependencies]
