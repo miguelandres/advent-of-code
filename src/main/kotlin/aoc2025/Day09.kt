@@ -7,7 +7,7 @@ import utils.readAocInput
 import kotlin.math.max
 
 fun main() {
-  val positions = readAocInput(9, 0).map { it.parsePosition() }
+  val positions = readAocInput(9, 1).map { it.parsePosition() }
 
   val polygon = Polygon.createFromPositions(positions)
   assert(polygon.boundary.all { it.a != it.b })
