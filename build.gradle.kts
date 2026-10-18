@@ -35,9 +35,9 @@ application {
 
 tasks.register<JavaExec>("runDay") {
   group = "aoc"
-  description = "Run any aoc<year>.DayXX.kt file with main() (e.g. -Pyear=2025 -Pday=01)"
+  description = "Run any aoc<year>.DayXX.kt file with main() (e.g. -Pyear=2026 -Pday=01)"
 
-  val year = providers.gradleProperty("year").orElse("2025")
+  val year = providers.gradleProperty("year").orElse("2026")
   val day = providers.gradleProperty("day")
 
   mainClass.set(

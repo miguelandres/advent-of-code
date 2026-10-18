@@ -1,10 +1,10 @@
 # Miguel's Advent of Code
 
-Unified Advent of Code repository with solutions organized by year (`aoc2020`, `aoc2021`, `aoc2022`, `aoc2023`, `aoc2025`) in Kotlin and Scala using Gradle (`build.gradle.kts`).
+Unified Advent of Code repository with solutions organized by year (`aoc2020`, `aoc2021`, `aoc2022`, `aoc2023`, `aoc2025`, `aoc2026`) in Kotlin and Scala using Gradle (`build.gradle.kts`).
 
 ## Structure
 
-- `src/main/kotlin/aoc<year>/`: Kotlin solutions for each year (`aoc2022`, `aoc2023`, `aoc2025`)
+- `src/main/kotlin/aoc<year>/`: Kotlin solutions for each year (`aoc2022`, `aoc2023`, `aoc2025`, `aoc2026`)
 - `src/main/scala/aoc<year>/`: Scala solutions for each year (`aoc2020`, `aoc2021`, `aoc2022`)
 - `src/main/kotlin/{collections,geometry,graph,grid,utils}/`: Shared utilities across years
 - `input/aoc<year>/`: Puzzle inputs for each year (tracked in the private `aoc-inputs` Git submodule)
