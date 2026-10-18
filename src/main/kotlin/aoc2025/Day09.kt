@@ -12,9 +12,9 @@ fun main() {
   val polygon = Polygon.createFromPositions(positions)
   assert(polygon.boundary.all { it.a != it.b })
   var maxArea = 0L
-  for (i in 0..positions.lastIndex) {
+  for ((i, element) in positions.withIndex()) {
     for (j in i + 1..positions.lastIndex) {
-      val positionRectangle = PositionRectangle(positions[i], positions[j])
+      val positionRectangle = PositionRectangle(element, positions[j])
       maxArea = max(maxArea, positionRectangle.area)
     }
   }
