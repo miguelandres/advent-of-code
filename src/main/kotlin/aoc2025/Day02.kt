@@ -36,17 +36,19 @@ fun main() {
 
   val sumInvalidIdsPart1 =
     ranges.sumOf { range ->
-      range.filter {
-        isInvalidIdPart1(it)
-      }.sum()
+      range
+        .filter {
+          isInvalidIdPart1(it)
+        }.sum()
     }
   println(sumInvalidIdsPart1)
 
   val sumInvalidIdsPart2 =
     ranges.sumOf { range ->
-      range.filter {
-        isInvalidIdPart2(it)
-      }.sum()
+      range
+        .filter {
+          isInvalidIdPart2(it)
+        }.sum()
     }
   println(sumInvalidIdsPart2)
 }

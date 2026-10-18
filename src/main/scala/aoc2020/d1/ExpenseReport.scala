@@ -9,11 +9,11 @@ object ExpenseReport extends App {
   try {
     val entries = source.getLines().map(_.toInt)
 
-    var map = HashMap[Int, (List[List[Int]])]()
+    var map = HashMap[Int, List[List[Int]]]()
     breakable {
       for (entry <- entries) {
         var newMap = map
-        //println (map.keySet)
+        // println (map.keySet)
         map.keysIterator foreach (key => {
           map.get(key).get.foreach { list =>
             if (list.size == 2 && key + entry == 2020) {

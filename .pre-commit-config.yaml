@@ -32,3 +32,12 @@ repos:
       - id: pretty-format-kotlin
         args: [--autofix]
         files: ^.*\.kts?$
+        additional_dependencies: ["setuptools<81"]
+  - repo: local
+    hooks:
+      - id: scalafmt
+        name: scalafmt
+        entry: scala fmt .
+        language: system
+        files: ^.*\.scala$
+        pass_filenames: false

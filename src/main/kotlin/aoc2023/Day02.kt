@@ -13,7 +13,10 @@ val maxCubesPerColor =
 
 val colors = listOf("red", "green", "blue")
 
-data class ColorCount(val color: String, val count: Int) {
+data class ColorCount(
+  val color: String,
+  val count: Int,
+) {
   companion object {
     fun fromString(s: String): ColorCount {
       val parts = s.trim().split(" ")
@@ -48,13 +51,11 @@ fun main() {
         it.second.fold(colors.associateWith { 0 }) { result, show ->
           result.mapValues { entry -> max(entry.value, show[entry.key] ?: 0) }
         }
-      }
-      .map {
+      }.map {
         it.entries.fold(1) { result, next ->
           result * next.value
         }
-      }
-      .sum()
+      }.sum()
 
   println(part2)
 }

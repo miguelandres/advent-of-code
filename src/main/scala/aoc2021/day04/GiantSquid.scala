@@ -13,7 +13,7 @@ object GiantSquid extends App {
   breakable {
     for (number <- numbersPlayed; board <- boards) {
       board.play(number) match {
-        case None => ()
+        case None        => ()
         case Some(value) =>
           println(s"score: $value")
 
@@ -33,7 +33,7 @@ object GiantSquid extends App {
     def apply(input: Iterator[String]): Board = {
       var rows = mutable.Seq[mutable.Seq[(Int, Boolean)]]()
       var columns: mutable.Seq[mutable.Seq[(Int, Boolean)]] =
-        mutable.Seq.from(((0 to 5).map(_ => mutable.Seq[(Int, Boolean)]())))
+        mutable.Seq.from((0 to 5).map(_ => mutable.Seq[(Int, Boolean)]()))
       var numbers = mutable.Map[Int, (Int, Int)]()
       for (i <- 0 to 4) {
         val currentRow =
@@ -59,7 +59,7 @@ object GiantSquid extends App {
     def play(number: Int): Option[Int] = {
       if (done) return None
       numbers.get(number) match {
-        case None => None
+        case None         => None
         case Some((x, y)) =>
           row(x)(y) = (number, true)
           column(y)(x) = (number, true)

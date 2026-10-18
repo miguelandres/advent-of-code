@@ -41,9 +41,9 @@ object HydrothermalVenture extends App {
   //   )
   // }
 
-  //println(lines)
-  //println(allPoints)
-  //println(pointMap)
+  // println(lines)
+  // println(allPoints)
+  // println(pointMap)
   val dangerousPointCount = pointMap.values.count(_ > 1)
   println(dangerousPointCount)
 

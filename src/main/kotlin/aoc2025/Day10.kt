@@ -9,12 +9,11 @@ enum class LightStatus {
   OFF,
   ;
 
-  fun flip(): LightStatus {
-    return when (this) {
+  fun flip(): LightStatus =
+    when (this) {
       ON -> OFF
       OFF -> ON
     }
-  }
 }
 
 data class MachineStatus(
@@ -29,9 +28,7 @@ data class MachineStatus(
   }
 
   companion object {
-    fun new(numberOfLights: Int): MachineStatus {
-      return MachineStatus(Array(numberOfLights) {LightStatus.OFF }.toList())
-    }
+    fun new(numberOfLights: Int): MachineStatus = MachineStatus(Array(numberOfLights) {LightStatus.OFF }.toList())
   }
 }
 
@@ -46,15 +43,13 @@ data class MachineJoltage(
     return MachineJoltage(newJoltages.toList())
   }
 
-  fun isDisqualifiedFor(requirements: MachineJoltage): Boolean {
-    return joltages.zip(requirements.joltages).any {
+  fun isDisqualifiedFor(requirements: MachineJoltage): Boolean =
+    joltages.zip(requirements.joltages).any {
       it.first > it.second
     }
-  }
+
   companion object {
-    fun new(numberOfJoltages: Int): MachineJoltage {
-      return MachineJoltage(Array(numberOfJoltages) {0 }.toList())
-    }
+    fun new(numberOfJoltages: Int): MachineJoltage = MachineJoltage(Array(numberOfJoltages) {0 }.toList())
   }
 }
 
@@ -101,12 +96,13 @@ fun main() {
       while (!currentCandidates.contains(target)) {
         count++
         currentCandidates =
-          currentCandidates.flatMap { from ->
-            buttons
-              .map { from.pressButton(it) }
-              .toSet()
-              .filterNot { seenStatuses.contains(it)}
-          }.toSet()
+          currentCandidates
+            .flatMap { from ->
+              buttons
+                .map { from.pressButton(it) }
+                .toSet()
+                .filterNot { seenStatuses.contains(it)}
+            }.toSet()
         seenStatuses = seenStatuses + currentCandidates
       }
       count

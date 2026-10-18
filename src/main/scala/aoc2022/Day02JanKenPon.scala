@@ -6,44 +6,38 @@ object JanKenPon extends App {
   sealed abstract class Hand(val score: Int) {
     import Hand._
 
-    def winsAgainst(otherHand: Hand): Boolean = {
+    def winsAgainst(otherHand: Hand): Boolean =
       (this, otherHand) match {
         case (Rock, Scissors)  => true
         case (Scissors, Paper) => true
         case (Paper, Rock)     => true
         case _                 => false
       }
-    }
-    def losesAgainst(otherHand: Hand): Boolean = {
+    def losesAgainst(otherHand: Hand): Boolean =
       (this, otherHand) match {
         case (Scissors, Rock)  => true
         case (Paper, Scissors) => true
         case (Rock, Paper)     => true
         case _                 => false
       }
-    }
 
-    def scoreAgainst(otherHand: Hand): Int = {
+    def scoreAgainst(otherHand: Hand): Int =
       this.score + (if (this == otherHand) { 3 }
                     else if (this.losesAgainst(otherHand)) { 0 }
                     else { 6 })
 
-    }
-
-    def winningPlay: Hand = {
+    def winningPlay: Hand =
       this match {
         case Rock     => Paper
         case Paper    => Scissors
         case Scissors => Rock
       }
-    }
-    def losingPlay: Hand = {
+    def losingPlay: Hand =
       this match {
         case Rock     => Scissors
         case Paper    => Rock
         case Scissors => Paper
       }
-    }
 
   }
 
@@ -52,7 +46,7 @@ object JanKenPon extends App {
     case object Paper extends Hand(2)
     case object Scissors extends Hand(3)
 
-    def apply(s: String): Hand = {
+    def apply(s: String): Hand =
       s match {
         case "A" => Rock
         case "X" => Rock
@@ -62,13 +56,11 @@ object JanKenPon extends App {
         case "Z" => Scissors
         case _   => ???
       }
-    }
   }
 
   case class Play(otherPlayer: Hand, you: Hand) {
-    def score: (Int, Int) = {
+    def score: (Int, Int) =
       (otherPlayer.scoreAgainst(you), you.scoreAgainst(otherPlayer))
-    }
   }
 
   object Play {

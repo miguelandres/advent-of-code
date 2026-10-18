@@ -3,9 +3,7 @@ package geometry
 import kotlin.math.abs
 import kotlin.math.hypot
 
-fun Segment.toLine(): Line {
-  return Line.fromSegment(this)
-}
+fun Segment.toLine(): Line = Line.fromSegment(this)
 
 /**
  * Represents an infinite line by the 2d generalized equation of ax+by+c = 0
@@ -58,9 +56,7 @@ data class Line(
   fun contains(
     point: Point,
     eps: Double = 1e-12,
-  ): Boolean {
-    return abs(a * point.x + b * point.y + c) <= eps
-  }
+  ): Boolean = abs(a * point.x + b * point.y + c) <= eps
 
   companion object {
     fun fromPoints(
@@ -81,8 +77,6 @@ data class Line(
       }
     }
 
-    fun fromSegment(segment: Segment): Line {
-      return fromPoints(segment.a, segment.b)
-    }
+    fun fromSegment(segment: Segment): Line = fromPoints(segment.a, segment.b)
   }
 }

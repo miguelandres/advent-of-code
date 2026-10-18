@@ -21,7 +21,7 @@ object ExtendedPolymerization extends App {
 
   val transformations = input.tail.map { str =>
     val parts = str.split(" -> ")
-    (parts(0) -> parts(1)(0))
+    parts(0) -> parts(1)(0)
   }.toMap
 
   def applyTransformations() {

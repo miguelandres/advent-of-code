@@ -25,8 +25,8 @@ object CustomsDeclaration extends App {
         count = count + 1
       }
     }
-  //sumAnyone += reportAnyone()
-  //sumEveryone += reportEveryone(count)
+  // sumAnyone += reportAnyone()
+  // sumEveryone += reportEveryone(count)
 
   println(sumAnyone)
   println(sumEveryone)
@@ -35,7 +35,5 @@ object CustomsDeclaration extends App {
     questions.foldRight[Int](0)((present, count) => if (present) count + 1 else count)
 
   def reportEveryone(people: Int): Int =
-    questionCount.foldRight[Int](0) { (count, result) =>
-      if (count == people) result + 1 else result
-    }
+    questionCount.foldRight[Int](0)((count, result) => if (count == people) result + 1 else result)
 }

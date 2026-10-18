@@ -32,7 +32,7 @@ object PassagePathing extends App {
       paths = paths.flatMap { path =>
         if (path.isDone) { Seq(path) }
         else {
-          (edgeMap(path.last).clone()).collect {
+          edgeMap(path.last).clone().collect {
             case next
                 if next != "start" && path.blockedNeighbors
                   .contains(next) && !path.repeatVisitedSmallCave =>

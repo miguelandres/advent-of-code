@@ -13,7 +13,8 @@ fun main() {
   val positions =
     readAocInput(8, 1)
       .map { s ->
-        s.split(",")
+        s
+          .split(",")
           .map { it.toInt() }
           .let { Position3D(it[0], it[1], it[2]) }
       }.toTypedArray()
@@ -65,7 +66,12 @@ fun main() {
     circuitSizes = circuitSizes + size
   }
 
-  val part1 = circuitSizes.sortedDescending().take(3).also { println(it)}.reduce { a, b -> a * b }
+  val part1 =
+    circuitSizes
+      .sortedDescending()
+      .take(3)
+      .also { println(it)}
+      .reduce { a, b -> a * b }
   println(part1)
 
   var tree = setOf(distanceList.first().from)

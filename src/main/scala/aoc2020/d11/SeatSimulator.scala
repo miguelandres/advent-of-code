@@ -39,14 +39,14 @@ object SeatSimulator extends App {
   case class Seat(x: Int, y: Int, taken: Option[Boolean]) {
     def countTakenSurroundingSeats(): Int = {
       var count = 0
-      (for (i <- x - 1 to x + 1; j <- y - 1 to y + 1)
+      for (i <- x - 1 to x + 1; j <- y - 1 to y + 1)
         if (i >= 0 && i < map.maxX && j >= 0 && j < map.maxY && (i != x || j != y)) {
           count = map.rows(i)(j).taken match {
             case None        => count
             case Some(false) => count
             case Some(true)  => count + 1
           }
-        })
+        }
       count
     }
 
@@ -64,7 +64,10 @@ object SeatSimulator extends App {
       _maxY = row.size
     }
 
-    private def simulateOneRound(funcSeat: (Seat => Boolean),funcUnseat: (Seat => Boolean)): Boolean = {
+    private def simulateOneRound(
+        funcSeat: (Seat => Boolean),
+        funcUnseat: (Seat => Boolean)
+    ): Boolean = {
       var newRows = new ArrayBuffer[Seq[Seat]]
       var moved = false
       for (i <- 0 to maxX - 1) {
@@ -72,7 +75,7 @@ object SeatSimulator extends App {
         for (j <- 0 to maxY - 1) {
           var seat = rows(i)(j)
           newRow += (seat.taken match {
-            case None => seat
+            case None        => seat
             case Some(false) =>
               if (funcSeat(seat)) {
                 moved = true
@@ -94,7 +97,9 @@ object SeatSimulator extends App {
     }
 
     def simulateAdjacentSeats(): Int = {
-      while (simulateOneRound(_.countTakenSurroundingSeats ==0,_.countTakenSurroundingSeats > 3)) {}
+      while (
+        simulateOneRound(_.countTakenSurroundingSeats == 0, _.countTakenSurroundingSeats > 3)
+      ) {}
       var count = 0;
       for (row <- rows; seat <- row) seat.taken match {
         case Some(true) => count += 1
@@ -105,7 +110,12 @@ object SeatSimulator extends App {
 
     def simulateVisibleSeats(): Int = {
       mapVisible = ArrayBuffer.fill(maxX)(ArrayBuffer.fill(maxY)(0))
-      while (simulateOneRound(seat => mapVisible(seat.x)(seat.y) == 0,seat => mapVisible(seat.x)(seat.y) > 4)) {
+      while (
+        simulateOneRound(
+          seat => mapVisible(seat.x)(seat.y) == 0,
+          seat => mapVisible(seat.x)(seat.y) > 4
+        )
+      ) {
         mapVisible = ArrayBuffer.fill(maxX)(ArrayBuffer.fill(maxY)(0))
         for (x <- 0 to maxX - 1; y <- 0 to maxY - 1)
           if (rows(x)(y).taken == Some(true)) {

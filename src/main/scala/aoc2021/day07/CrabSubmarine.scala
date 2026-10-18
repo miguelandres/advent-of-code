@@ -18,7 +18,7 @@ object CrabSubmarine extends App {
       bestDistance = distanceSum
     }
 
-    val fuel = distances.map(distance => (distance * (distance + 1) / 2))
+    val fuel = distances.map(distance => distance * (distance + 1) / 2)
     val fuelSum = fuel.sum
     if (fuelSum < bestFuel) {
       bestFuel = fuelSum

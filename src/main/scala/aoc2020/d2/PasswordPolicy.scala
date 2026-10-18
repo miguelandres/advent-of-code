@@ -37,14 +37,14 @@ object PasswordPolicy {
 
   def compliesWithPolicy(password: String, policy: CountingPolicy): Boolean = {
     val matches = policy.char.r.findAllIn(password).length
-    return (matches >= policy.min && matches <= policy.max)
+    return matches >= policy.min && matches <= policy.max
   }
 
   def compliesWithPolicy(
       password: String,
       policy: PositionalPolicy
   ): Boolean =
-    return (password.charAt(policy.pos1) != password.charAt(policy.pos2) &&
+    return password.charAt(policy.pos1) != password.charAt(policy.pos2) &&
       (password.charAt(policy.pos1) == policy.char ||
-        password.charAt(policy.pos2) == policy.char))
+        password.charAt(policy.pos2) == policy.char)
 }

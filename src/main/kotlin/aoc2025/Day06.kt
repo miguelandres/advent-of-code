@@ -16,17 +16,13 @@ enum class CephalopodOperation : Operation<Long> {
     override fun apply(
       a: Long,
       b: Long,
-    ): Long {
-      return a * b
-    }
+    ): Long = a * b
   },
   Add {
     override fun apply(
       a: Long,
       b: Long,
-    ): Long {
-      return a + b
-    }
+    ): Long = a + b
   },
 }
 
@@ -35,11 +31,17 @@ fun main() {
   val whitespaceRegex = "\\s+".toRegex()
   val numbersStr = lines.subList(0, lines.size - 1)
   val numbers =
-    numbersStr.map {
-      it.trim().split(whitespaceRegex).map { numStr -> if (numStr == "") 0L else numStr.toLong() }.toTypedArray()
-    }.toTypedArray().let {
-      Map2D(it)
-    }
+    numbersStr
+      .map {
+        it
+          .trim()
+          .split(whitespaceRegex)
+          .map { numStr -> if (numStr == "") 0L else numStr.toLong() }
+          .toTypedArray()
+      }.toTypedArray()
+      .let {
+        Map2D(it)
+      }
 
   val operationsLine = lines.last()
   val operations =
@@ -52,9 +54,12 @@ fun main() {
     }
 
   val part1 =
-    operations.mapIndexed { i, operation ->
-      numbers.range.rangeY.map { j -> numbers[Position(i, j)] }.reduce { a, b -> operation.apply(a, b) }
-    }.sum()
+    operations
+      .mapIndexed { i, operation ->
+        numbers.range.rangeY
+          .map { j -> numbers[Position(i, j)] }
+          .reduce { a, b -> operation.apply(a, b) }
+      }.sum()
   println(part1)
 
   val startIndices = mutableListOf<Int>()
@@ -68,18 +73,19 @@ fun main() {
     (0 until operations.size).sumOf { opNumber ->
       val numberRange = numberRanges[opNumber]
       val operation = operations[opNumber]
-      numberRange.map { column ->
-        numbersStr.fold(0L) { acc, row ->
-          if (column >= row.length) {
-            // No op, empty space
-            acc
-          } else if (row[column].isDigit()) {
-            acc * 10 + row[column].digitToInt()
-          } else {
-            acc
+      numberRange
+        .map { column ->
+          numbersStr.fold(0L) { acc, row ->
+            if (column >= row.length) {
+              // No op, empty space
+              acc
+            } else if (row[column].isDigit()) {
+              acc * 10 + row[column].digitToInt()
+            } else {
+              acc
+            }
           }
-        }
-      }.reduce { a, b -> operation.apply(a, b) }
+        }.reduce { a, b -> operation.apply(a, b) }
     }
 
   println(part2)

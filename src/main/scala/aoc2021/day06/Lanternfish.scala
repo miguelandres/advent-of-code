@@ -4,7 +4,8 @@ import scala.io.Source
 
 import scala.collection.mutable
 object Lanternfish extends App {
-  var fish = Source.fromFile("input/aoc2021/d06p01.txt").getLines().toSeq.head.split(",").map(_.toInt)
+  var fish =
+    Source.fromFile("input/aoc2021/d06p01.txt").getLines().toSeq.head.split(",").map(_.toInt)
 
   var fishMap = {
     var map = mutable.Map.from((0 to 8).map(x => (x, 0L)))

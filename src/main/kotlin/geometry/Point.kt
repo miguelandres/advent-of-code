@@ -3,9 +3,7 @@ package geometry
 import grid.Position
 import kotlin.math.abs
 
-fun Position.toPoint(): Point {
-  return Point.fromPosition(this)
-}
+fun Position.toPoint(): Point = Point.fromPosition(this)
 
 data class Point(
   val x: Double,
@@ -15,21 +13,15 @@ data class Point(
   fun equalsWithEpsilon(
     other: Point,
     eps: Double = 1e-12,
-  ): Boolean {
-    return abs(x - other.x) < eps && abs(y - other.y) < eps
-  }
+  ): Boolean = abs(x - other.x) < eps && abs(y - other.y) < eps
 
   @Suppress("UNUSED")
   fun equalsWithEpsilon(
     other: Position,
     eps: Double = 1e-12,
-  ): Boolean {
-    return abs(x - other.x) < eps && abs(y - other.y) < eps
-  }
+  ): Boolean = abs(x - other.x) < eps && abs(y - other.y) < eps
 
   companion object {
-    fun fromPosition(position: Position): Point {
-      return Point(position.x.toDouble(), position.y.toDouble())
-    }
+    fun fromPosition(position: Position): Point = Point(position.x.toDouble(), position.y.toDouble())
   }
 }

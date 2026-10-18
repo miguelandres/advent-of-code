@@ -4,14 +4,10 @@ import grid.Position
 import grid.PositionRectangle
 
 @Suppress("UNUSED")
-fun Rectangle.toPolygon(): Polygon {
-  return Polygon.createFromPoints(this.cornerPoints)
-}
+fun Rectangle.toPolygon(): Polygon = Polygon.createFromPoints(this.cornerPoints)
 
 @Suppress("UNUSED")
-fun PositionRectangle.toPolygon(): Polygon {
-  return Polygon.createFromPositions(this.cornerPositions)
-}
+fun PositionRectangle.toPolygon(): Polygon = Polygon.createFromPositions(this.cornerPositions)
 
 @ConsistentCopyVisibility
 data class Polygon private constructor(
@@ -26,7 +22,7 @@ data class Polygon private constructor(
       @Suppress("NAME_SHADOWING")
       val boundarySegments = boundarySegments.toList()
       if ((0..boundarySegments.lastIndex).any {
-          boundarySegments[it].b != boundarySegments[(it + 1) % boundarySegments.size ].a
+          boundarySegments[it].b != boundarySegments[(it + 1) % boundarySegments.size].a
         }
       ) {
         throw Error("Boundary is inconsistent")
@@ -40,16 +36,15 @@ data class Polygon private constructor(
     fun createFromPoints(points: Collection<Point>): Polygon {
       @Suppress("NAME_SHADOWING")
       val points = points.toList()
-      return (0..points.lastIndex).map {
-        Segment(points[it], points[(it + 1) % points.size])
-      }.let { Polygon(it) }
+      return (0..points.lastIndex)
+        .map {
+          Segment(points[it], points[(it + 1) % points.size])
+        }.let { Polygon(it) }
     }
 
     /**
      * Creates a polygon from a list of positions
      */
-    fun createFromPositions(positions: Collection<Position>): Polygon {
-      return createFromPoints(positions.map {it.toPoint()})
-    }
+    fun createFromPositions(positions: Collection<Position>): Polygon = createFromPoints(positions.map {it.toPoint()})
   }
 }

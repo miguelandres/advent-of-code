@@ -31,32 +31,32 @@ fun main() {
   val part2 =
     readAocInput(1, 2)
       .map { line ->
-        (0..9).map {
-          (
-            minPositive(
-              line.indexOf(it.toString()),
-              line.indexOf(digitMap.getValue(it)),
+        (0..9)
+          .map {
+            (
+              minPositive(
+                line.indexOf(it.toString()),
+                line.indexOf(digitMap.getValue(it)),
+              )
+                to
+                max(line.lastIndexOf(it.toString()), line.lastIndexOf(digitMap.getValue(it)))
             )
-              to
-              max(line.lastIndexOf(it.toString()), line.lastIndexOf(digitMap.getValue(it)))
-          )
-        }.let { positions ->
-          val (firstPos, lastPos) = positions.unzip()
-          val lastDigit =
-            lastPos
-              .withIndex()
-              .maxBy { it.value }
-              .index
-          val firstDigit =
-            firstPos
-              .withIndex()
-              .filterNot { it.value == null }
-              .minBy { it.value!! }
-              .index
-          firstDigit * 10 + lastDigit
-        }
-      }
-      .sum()
+          }.let { positions ->
+            val (firstPos, lastPos) = positions.unzip()
+            val lastDigit =
+              lastPos
+                .withIndex()
+                .maxBy { it.value }
+                .index
+            val firstDigit =
+              firstPos
+                .withIndex()
+                .filterNot { it.value == null }
+                .minBy { it.value!! }
+                .index
+            firstDigit * 10 + lastDigit
+          }
+      }.sum()
 
   println(part2)
 }

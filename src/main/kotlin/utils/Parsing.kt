@@ -61,6 +61,4 @@ fun String.parseLongRange(): LongRange {
   return parts[0]..parts[1]
 }
 
-fun String.parsePosition(): Position {
-  return this.split(",").map { it.toInt() }.let { Position(it[0], it[1]) }
-}
+fun String.parsePosition(): Position = this.split(",").map { it.toInt() }.let { Position(it[0], it[1]) }

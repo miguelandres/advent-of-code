@@ -43,7 +43,7 @@ object DumboOctopus extends App {
     var flashed = false
     if ((0 until 10).contains(x) && (0 until 10).contains(y)) {
       input(x)(y) = input(x)(y) match {
-        case None => None
+        case None    => None
         case Some(9) =>
           flashed = true
           None

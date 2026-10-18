@@ -45,7 +45,7 @@ object CypherChecking extends App {
         }
       }
       end match {
-        case None => ()
+        case None           => ()
         case Some(endIndex) =>
           var sorted = subList.sortInPlace()
           println(sorted)

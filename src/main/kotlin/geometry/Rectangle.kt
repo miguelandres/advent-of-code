@@ -5,9 +5,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-fun PositionRectangle.toRectangle(): Rectangle {
-  return Rectangle(this.a.toPoint(), this.b.toPoint())
-}
+fun PositionRectangle.toRectangle(): Rectangle = Rectangle(this.a.toPoint(), this.b.toPoint())
 
 data class Rectangle(
   val a: Point,

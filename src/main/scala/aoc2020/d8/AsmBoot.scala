@@ -13,7 +13,7 @@ class AsmRunner {
     def run(
         patchedInstructions: ArrayBuffer[Instruction] = instructions
     ): Try[Instruction] = Try {
-      if (hasRun) throw (new Exception())
+      if (hasRun) throw new Exception()
       hasRun = true
       doRun()
       updateIndex()

@@ -53,7 +53,7 @@ object AllergenDetector {
 
     for (allergen <- allAllergens)
       for (ingredient <- allergensToPossibleIngredients(allergen))
-        if (!(allergensToRecipes(allergen).forall(_.contains(ingredient)))) {
+        if (!allergensToRecipes(allergen).forall(_.contains(ingredient))) {
           allergensToPossibleIngredients.removeBinding(allergen, ingredient)
           ingredientsToPossibleAllergens.removeBinding(ingredient, allergen)
         }

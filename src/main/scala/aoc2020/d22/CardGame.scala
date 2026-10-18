@@ -26,7 +26,7 @@ object CardGame extends App {
       )
     )
   )
-  
+
   println(
     calculateScore(
       player1WinsRecursiveCombat(

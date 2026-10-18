@@ -6,9 +6,8 @@ import scala.collection.mutable.{Seq => MutableSeq}
 object SonarMeasurements extends App {
 
   val inputData = Source.fromFile("input/aoc2021/d01p01.txt").getLines.map(_.toLong).toSeq;
-  def part1() = {
+  def part1() =
     Console.println(countIncreases(inputData))
-  }
 
   def countIncreases(seq: Seq[Long]): Long = {
     var prev = seq.head

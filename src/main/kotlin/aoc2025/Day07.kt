@@ -16,39 +16,35 @@ enum class TachyonLocation : TachyonInteraction {
     override fun interact(
       column: Int,
       map: Map2D<TachyonLocation>,
-    ): Set<Int> {
-      return setOf(column)
-    }
+    ): Set<Int> = setOf(column)
   },
   Start {
     override fun interact(
       column: Int,
       map: Map2D<TachyonLocation>,
-    ): Set<Int> {
-      return setOf(column)
-    }
+    ): Set<Int> = setOf(column)
   },
   Splitter {
     override fun interact(
       column: Int,
       map: Map2D<TachyonLocation>,
-    ): Set<Int> {
-      return listOf(column + 1, column - 1).filter { map.range.rangeX.contains(it) }.toSet()
-    }
+    ): Set<Int> = listOf(column + 1, column - 1).filter { map.range.rangeX.contains(it) }.toSet()
   },
 }
 
 fun main() {
   val mapArray =
-    readAocInput(7, 1).map { s ->
-      s.map {
-        when (it) {
-          'S', 's' -> TachyonLocation.Start
-          '^' -> TachyonLocation.Splitter
-          else -> TachyonLocation.Empty
-        }
+    readAocInput(7, 1)
+      .map { s ->
+        s
+          .map {
+            when (it) {
+              'S', 's' -> TachyonLocation.Start
+              '^' -> TachyonLocation.Splitter
+              else -> TachyonLocation.Empty
+            }
+          }.toTypedArray()
       }.toTypedArray()
-    }.toTypedArray()
   val map = Map2D(mapArray)
 
   val startPosition = map.range.first { pos -> map[pos] == TachyonLocation.Start }
@@ -61,10 +57,11 @@ fun main() {
         map[pos] == TachyonLocation.Splitter
       }
     tachyonColumns =
-      tachyonColumns.map {
-        val pos = Position(it, y)
-        map[pos].interact(it, map)
-      }.fold(emptySet()) { acc, cols -> acc + cols}
+      tachyonColumns
+        .map {
+          val pos = Position(it, y)
+          map[pos].interact(it, map)
+        }.fold(emptySet()) { acc, cols -> acc + cols}
   }
   println(countSplits)
 

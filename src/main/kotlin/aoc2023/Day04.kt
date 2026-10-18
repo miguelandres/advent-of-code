@@ -2,7 +2,11 @@ package aoc2023
 
 import utils.readAocInput
 
-class ScratchCard(val winningNumbers: Set<Int>, val myNumbers: Set<Int>, var copies: Int = 1){
+class ScratchCard(
+  val winningNumbers: Set<Int>,
+  val myNumbers: Set<Int>,
+  var copies: Int = 1,
+) {
   fun countWinningNumbers(): Int = winningNumbers.count { myNumbers.contains(it) }
 
   fun calculatePower(): Int {
@@ -17,15 +21,19 @@ class ScratchCard(val winningNumbers: Set<Int>, val myNumbers: Set<Int>, var cop
 
 fun main() {
   val cards =
-    readAocInput(4, 1).map { s ->
-      s.substringAfter(':')
-        .split(" | ")
-        .map {
-          it.split(Regex(" +")).filterNot { it.isEmpty() }
-            .map { it.toInt() }.toSet()
-        }
-        .let { ScratchCard(it[0], it[1]) }
-    }.toList()
+    readAocInput(4, 1)
+      .map { s ->
+        s
+          .substringAfter(':')
+          .split(" | ")
+          .map {
+            it
+              .split(Regex(" +"))
+              .filterNot { it.isEmpty() }
+              .map { it.toInt() }
+              .toSet()
+          }.let { ScratchCard(it[0], it[1]) }
+      }.toList()
 
   val part1 =
     cards

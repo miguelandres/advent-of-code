@@ -63,8 +63,9 @@ object TransparentOrigami extends App {
 
   for (y <- 0L to maxY) {
     for (x <- 0L to maxX) {
-      print(if (endDots.contains(Dot(x, y))) { '#' }
-      else { '.' })
+      print(if (endDots.contains(Dot(x, y))) {
+        '#'
+      } else { '.' })
     }
     println()
   }

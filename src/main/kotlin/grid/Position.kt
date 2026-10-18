@@ -37,12 +37,11 @@ data class Position(
   fun <T> mapNeighborsInRange(
     range: Range2D,
     transform: (Position) -> T,
-  ): List<T> {
-    return Direction.entries
+  ): List<T> =
+    Direction.entries
       .map { this + it }
       .filter { range.contains(it) }
       .map(transform)
-  }
 
   @Suppress("UNUSED")
   fun forDiagonalNeighborsInRange(
@@ -59,12 +58,11 @@ data class Position(
   fun <T> mapDiagonalNeighborsInRange(
     range: Range2D,
     transform: (Position) -> T,
-  ): List<T> {
-    return DirectionWithDiagonals.entries
+  ): List<T> =
+    DirectionWithDiagonals.entries
       .map { this + it }
       .filter { range.contains(it) }
       .map(transform)
-  }
 
   fun manhattanDistance(other: Position) = abs(x - other.x) + abs(y - other.y)
 

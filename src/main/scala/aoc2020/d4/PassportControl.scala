@@ -47,7 +47,7 @@ object PassportControl extends App {
   // Implementation part 1
   def validatePassportSimple(passport: HashMap[String, String]): Boolean =
     return required.foldLeft(true)((status, field) => status && passport.contains(field))
-  //implementation part 2
+  // implementation part 2
   def validatePassportAdvanced(passport: HashMap[String, String]): Boolean = {
     for (func <- validationFunctions)
       if (!func(passport)) return false
@@ -70,12 +70,12 @@ object PassportControl extends App {
     cmPattern.findFirstMatchIn(value) match {
       case Some(m) =>
         val cm = m.group(1).toIntOption.get
-        return (cm >= 150 && cm <= 193)
+        return cm >= 150 && cm <= 193
       case None =>
         inPattern.findFirstMatchIn(value) match {
           case Some(m) =>
             val in = m.group(1).toIntOption.get
-            return (in >= 59 && in <= 76)
+            return in >= 59 && in <= 76
           case None => return false
         }
     }

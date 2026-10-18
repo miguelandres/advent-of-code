@@ -20,7 +20,5 @@ data class PositionRectangle(
   }
 
   @Suppress("UNUSED")
-  fun isVerticalOrHorizontalLine(): Boolean {
-    return (a.x == b.x) || (a.y == b.y)
-  }
+  fun isVerticalOrHorizontalLine(): Boolean = (a.x == b.x) || (a.y == b.y)
 }
