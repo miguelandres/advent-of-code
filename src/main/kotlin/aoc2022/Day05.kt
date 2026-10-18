@@ -1,3 +1,5 @@
+package aoc2022
+
 import utils.readAocInput
 
 private fun executeOldInstruction(instruction: Triple<Int, Int, Int>, stacks: Array<MutableList<Char>>) {

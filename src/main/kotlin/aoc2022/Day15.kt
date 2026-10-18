@@ -1,5 +1,7 @@
-import utils.DistanceAwareSparseMap
-import utils.Position
+package aoc2022
+
+import grid.DistanceAwareSparseMap
+import grid.Position
 import utils.readAocInput
 import utils.splitWithPrefix
 
@@ -12,7 +14,7 @@ private fun processDay15(part: Int, possibleRange: IntRange) {
     println("Processing part $part, with possible range $possibleRange")
     val sensorsAndBeacons = readAocInput(15, part)
         .map {
-            val positions = splitWithPrefix(it, "Sensor at ", ": closest beacon is at ").map { posString ->
+            val positions = it.splitWithPrefix("Sensor at ", ": closest beacon is at ").map { posString ->
                 parsePositionWithAxisNames(posString, ", ")
             }
             Pair(positions[0], positions[1])

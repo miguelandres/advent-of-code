@@ -1,3 +1,5 @@
+package aoc2022
+
 import utils.readAocInput
 
 abstract class DistressMessage : Comparable<DistressMessage>

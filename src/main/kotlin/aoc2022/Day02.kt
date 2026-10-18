@@ -1,3 +1,5 @@
+package aoc2022
+
 import utils.readAocInput
 
 enum class Hand(private val score: Int) {

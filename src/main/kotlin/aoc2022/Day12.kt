@@ -1,5 +1,7 @@
-import utils.Direction
-import utils.Position
+package aoc2022
+
+import grid.Direction
+import grid.Position
 import utils.readAocInput
 import utils.wrapInTimeMeasurement
 import utils.wrapInTimeMeasurementWithResult

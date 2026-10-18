@@ -1,6 +1,8 @@
-import utils.GraphEdge
-import utils.GraphNode
-import utils.getAllDistancesFloydWarshall
+package aoc2022
+
+import graph.GraphEdge
+import graph.GraphNode
+import graph.getAllDistancesFloydWarshall
 import utils.readAocInput
 import utils.wrapInTimeMeasurement
 import utils.wrapInTimeMeasurementWithResult

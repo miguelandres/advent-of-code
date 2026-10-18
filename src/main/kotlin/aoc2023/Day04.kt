@@ -1,3 +1,5 @@
+package aoc2023
+
 import utils.readAocInput
 
 class ScratchCard(val winningNumbers: Set<Int>, val myNumbers: Set<Int>, var copies: Int = 1){

@@ -1,3 +1,5 @@
+package aoc2022
+
 import utils.readAocInput
 
 fun findStartOfSignal(line: String, length: Int = 4): Int {

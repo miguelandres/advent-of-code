@@ -1,9 +1,11 @@
+package aoc2022
+
 import utils.parseRange
 import utils.readAocInput
 
 fun main() {
     val assignments = readAocInput(4).map { s ->
-        val parts = s.split(",").map { r -> parseRange(r) }
+        val parts = s.split(",").map { r -> r.parseRange() }
         Pair(parts[0], parts[1])
     }
 

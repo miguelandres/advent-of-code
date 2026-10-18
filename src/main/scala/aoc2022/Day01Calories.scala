@@ -1,9 +1,10 @@
+package aoc2022
 
 import scala.io.Source
 
 object Calories extends App {
   val lines = Source
-    .fromFile("input/d01p01.txt")
+    .fromFile("input/aoc2022/d01p01.txt")
     .getLines
     .map(s => s.toIntOption)
     .foldLeft(Seq(Seq[Int]())) {

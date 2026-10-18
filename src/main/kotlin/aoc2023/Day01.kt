@@ -1,3 +1,5 @@
+package aoc2023
+
 import utils.minPositive
 import utils.readAocInput
 import kotlin.math.max

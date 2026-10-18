@@ -1,3 +1,5 @@
+package aoc2022
+
 import utils.readAocInput
 
 abstract class FileSystemNode(val name: String, val parent: Directory?) {

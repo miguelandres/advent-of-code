@@ -1,4 +1,6 @@
-import utils.Map2D
+package aoc2023
+
+import grid.Map2D
 import utils.readAocInput
 import java.util.regex.Pattern
 

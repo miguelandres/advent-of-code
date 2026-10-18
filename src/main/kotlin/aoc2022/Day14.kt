@@ -1,5 +1,7 @@
-import utils.DirectionWithDiagonals
-import utils.Position
+package aoc2022
+
+import grid.DirectionWithDiagonals
+import grid.Position
 import utils.readAocInput
 import utils.splitWithPrefix
 import utils.wrapInTimeMeasurement
@@ -10,7 +12,7 @@ fun parsePosition(s: String, delimiter: String = ","): Position {
     return Position(parts[0].toInt(), parts[1].toInt())
 }
 fun parsePositionWithAxisNames(s: String, delimiter: String): Position {
-    val parts = splitWithPrefix(s, "x=", "${delimiter}y=")
+    val parts = s.splitWithPrefix("x=", "${delimiter}y=")
     return Position(parts[0].toInt(), parts[1].toInt())
 }
 
