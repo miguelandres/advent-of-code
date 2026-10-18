@@ -47,3 +47,9 @@ repos:
         language: system
         files: ^.*\.rs$
         pass_filenames: false
+      - id: cargo-check
+        name: cargo check
+        entry: cargo check --all-targets
+        language: system
+        files: ^(Cargo\.toml|.*\.rs)$
+        pass_filenames: false

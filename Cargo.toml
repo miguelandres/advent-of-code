@@ -8,8 +8,12 @@ autobins = false
 name = "advent_of_code"
 path = "src/main/rust/lib.rs"
 
+[dependencies]
+
+[[bin]]
+name = "template"
+path = "src/main/rust/template.rs"
+
 [[bin]]
 name = "aoc2025_day01"
 path = "src/main/rust/aoc2025/day01.rs"
-
-[dependencies]

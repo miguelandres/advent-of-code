@@ -35,7 +35,8 @@ pre-commit install
 ## Start a new day
 
 ```sh
-./nextday.sh <dayNumber> [year]
+./nextday.sh rust <dayNumber> [year]
+./nextday.sh kotlin <dayNumber> [year]
 ```
 
 ## Run a day from console
